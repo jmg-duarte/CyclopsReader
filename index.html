@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclops Reader</title>
+    <link rel="icon" type="image/x-icon" href="static/logo_favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hanken Grotesk';
+            font-size: larger;
+        }
+
+        .c-description {
+            font-weight: 200;
+        }
+
+        /* Super bad but I don't know better */
+        i {
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-96 mx-auto my-4 flex flex-col space-y-4">
+        <div class="flex">
+            <img class="w-16 h-16" src="static/logo.png" alt="Cyclops Reader">
+            <div class="flex items-center">
+                <div>
+                    <b>Cyclops Reader</b>
+                    <p>An Hacker News <i>anti-reader</i></p>
+                    <!-- <h3 id="subtagline">Stop reading Hacker News so often!</h3> -->
+                </div>
+            </div>
+        </div>
+
+        <img id="screenshot" src="static/iphone_screenshot.png" alt="MyApp Screenshot">
+        <p class="c-description">
+            As <i>simple</i> as the original site.
+            <i>No addictives</i> like infinite scroll.
+            <i>Read-only</i> — no accounts, no comments, no upvotes.
+            <i>Minimal features</i> — bookmarks, stats, dark & light mode.
+        </p>
+    </div>
+</body>
+
+</html>
