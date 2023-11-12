@@ -14,19 +14,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
-    <style>
+    <style type="text/tailwindcss">
         body {
             font-family: 'Hanken Grotesk';
             font-size: larger;
         }
 
-        .c-description {
-            font-weight: 200;
+        .description {
+            @apply font-extralight text-justify;
         }
-
-        /* Super bad but I don't know better */
-        i {
-            font-weight: 400;
+        .description i {
+            @apply font-light;
+        }
+        .hidden-screenshot {
+            @apply absolute top-0 left-0 aria-hidden:opacity-0 transition-opacity duration-100 ease-in-out;
+        }
+        .hoverable-span {
+            @apply hover:underline cursor-pointer;
         }
     </style>
 </head>
@@ -43,19 +47,53 @@
                 <div>
                     <b>Cyclops Reader</b>
                     <p>A Hacker News <i>anti-reader</i></p>
-                    <!-- <h3 id="subtagline">Stop reading Hacker News so often!</h3> -->
                 </div>
             </div>
         </div>
-
-        <img id="screenshot" src="static/mockups/feed.png" alt="Cyclops Reader">
-        <p class="c-description">
+        <div class="relative">
+            <img id="main-screenshot" src="static/mockups/feed.png" alt="Cyclops Reader Feed Screenshot">
+            <img id="bookmarks-screenshot" src="static/mockups/bookmarks.png" alt="Bookmarks Screenshot"
+                class="hidden-screenshot" aria-hidden="true">
+            <img id="settings-screenshot" src="static/mockups/settings.png" alt="Settings Screenshot"
+                class="hidden-screenshot" aria-hidden="true">
+            <img id="dark-mode-screenshot" src="static/mockups/dark_theme.png" alt="Settings Screenshot"
+                class="hidden-screenshot" aria-hidden="true">
+        </div>
+        <p class="description">
             As <i>simple</i> as the original site.
             <i>No addictives</i> like infinite scroll.
             <i>Read-only</i> — no accounts, no comments, no upvotes.
-            <i>Minimal features</i> — bookmarks, stats, dark & light mode.
+            <i>Minimal features</i> —
+            <span class="hoverable-span" data-target-screenshot="bookmarks">
+                bookmarks
+            </span>
+            ,
+            <span class="hoverable-span" data-target-screenshot="settings">
+                stats
+            </span>
+            ,
+            <span class="hoverable-span" data-target-screenshot="dark-mode">
+                dark & light mode.
+            </span>
         </p>
     </div>
 </body>
+<script defer>
+    function toggleScreenshotVisibility(ele) {
+        const image = document.getElementById(ele + '-screenshot');
+        const current = image.getAttribute('aria-hidden');
+        image.setAttribute('aria-hidden', current === 'true' ? 'false' : 'true');
+    }
+    const hoverableSpans = document.getElementsByClassName('hoverable-span');
+    const consideredEvents = ['mouseover', 'mouseout']
+    for (const span of hoverableSpans) {
+        const target = span.getAttribute('data-target-screenshot');
+        for (event of consideredEvents) {
+            span.addEventListener(event, () => {
+                toggleScreenshotVisibility(target);
+            });
+        }
+    }
+</script>
 
 </html>
