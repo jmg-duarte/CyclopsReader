@@ -27,10 +27,10 @@
             @apply font-light;
         }
         .hidden-screenshot {
-            @apply absolute top-0 left-0 aria-hidden:opacity-0 transition-opacity duration-100 ease-in-out;
+            @apply absolute top-0 left-0 aria-hidden:opacity-0 transition-opacity duration-500 ease-in-out;
         }
         .hoverable-span {
-            @apply hover:underline cursor-pointer;
+            @apply cursor-pointer underline decoration-black/0 transition ease-in-out hover:decoration-black/100 duration-500 ;
         }
     </style>
 </head>
@@ -65,7 +65,9 @@
             <i>Read-only</i> — no accounts, no comments, no upvotes.
             <i>Minimal features</i> —
             <!-- They're all in one line because its the clearest and simplest way to get the space to be placed where it should. It ain't pretty but it gets the job done -->
-            <span class="hoverable-span" data-target-screenshot="bookmarks">bookmarks</span>, <span class="hoverable-span" data-target-screenshot="settings">stats</span>, <span class="hoverable-span" data-target-screenshot="dark-mode">dark & light mode</span>.
+            <span class="hoverable-span" data-target-screenshot="bookmarks">bookmarks</span>, <span
+                class="hoverable-span" data-target-screenshot="settings">stats</span>, <span class="hoverable-span"
+                data-target-screenshot="dark-mode">dark & light mode</span>.
         </p>
     </div>
 </body>
