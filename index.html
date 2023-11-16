@@ -30,7 +30,10 @@
             @apply absolute top-0 left-0 aria-hidden:opacity-0 transition-opacity duration-500 ease-in-out;
         }
         .hoverable-span {
-            @apply cursor-pointer underline decoration-black/0 transition ease-in-out hover:decoration-black/100 duration-500 ;
+            @apply cursor-pointer underline decoration-black/0 transition ease-in-out hover:decoration-black/100 duration-500;
+        }
+        .hoverable-a {
+            @apply cursor-pointer text-sky-600 underline decoration-black/0 transition ease-in-out hover:decoration-sky-600/100 duration-500;
         }
     </style>
 </head>
@@ -68,6 +71,10 @@
             <span class="hoverable-span" data-target-screenshot="bookmarks">bookmarks</span>, <span
                 class="hoverable-span" data-target-screenshot="settings">stats</span>, <span class="hoverable-span"
                 data-target-screenshot="dark-mode">dark & light mode</span>.
+        </p>
+
+        <p class="description">Try out the <a class="hoverable-a"
+                href="https://testflight.apple.com/join/txWiodrQ">beta</a>.
         </p>
     </div>
 </body>
